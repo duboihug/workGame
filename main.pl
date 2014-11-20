@@ -10,5 +10,5 @@
 
     my $main_page = connect_ogame() ;
     
-    my $test = get_mine_info(33850735);
+    my $test = get_metal_info(33850735);
     

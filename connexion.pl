@@ -21,9 +21,32 @@ sub agent_connect {
 
 
 sub connect_ogame {
-    print "Tentative de connexion";
+    print "Tentative de connexion\n";
     my $base = 'http://fr.ogame.gameforge.com/';
-    my ( $user, $pass ) = qw( **** **** );
+
+    # Fichier des options
+    open(FICHIN, 'config.txt') or die "Cannot open fichier config.txt files";
+
+    my $user=0;
+    my $pass=0;
+    while($_=<FICHIN>) {
+        my $var = $_; 
+        if(/User =/) {
+             $var =~/User =(.*?)\n/;
+             $user=$1;
+             $user=~s/[ \n]+//g;
+        }
+        if(/Pass =/) {
+             $var =~/Pass =(.*?)\n/;
+             $pass=$1;
+             $pass=~s/[ \n]+//g;
+        }
+    }
+
+    print "User :$user\n";
+    print "Pass :$pass\n";
+
+    #my ( $user, $pass ) = qw( ***** **** );
 
     my $ua = agent_connect();
 
@@ -61,6 +84,8 @@ sub connect_ogame {
     
     #Affichage page Main
     #print $resMain->content() ;
+
+    # Rajouter Test de connexion OK 
 
     print "\nConnexion réussi" ;
 

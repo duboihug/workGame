@@ -43,7 +43,7 @@ sub get_metal_info {
 	$resMineHTML =~/<span class="time">(.*?)<\/span>/ ;
 	my $energie = traitement_number($1);
 
-	print "\n level : ".$level." metal : ".$metal." cristal : ".$cristal." deut : ".$deut." energie : ".$energie."\n";
+	print "\nlevel : ".$level." metal : ".$metal." cristal : ".$cristal." deut : ".$deut." energie : ".$energie."\n";
 	
 
     #print $resMine->content();
