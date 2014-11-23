@@ -46,7 +46,7 @@ sub connect_ogame {
     print "User :$user\n";
     print "Pass :$pass\n";
 
-    #my ( $user, $pass ) = qw( ***** **** );
+    my ( $user, $pass ) = qw( **** ***** );
 
     my $ua = agent_connect();
 
